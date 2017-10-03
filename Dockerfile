@@ -12,7 +12,7 @@ COPY package.json package.json
 #RUN npm run build --production
 RUN npm install -g -s --no-progress yarn && \
 yarn && \
-yarn run build --production
+yarn run build
 
 # Copy all local files into the image.
 COPY . .
