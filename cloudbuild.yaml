@@ -1,12 +1,6 @@
 
 steps:
 
-  - name: gcr.io/cloud-builders/kubectl
-    args: ['config', 'view']
-    env:
-      - CLOUDSDK_CONTAINER_CLUSTER=cluster-1
-      - CLOUDSDK_COMPUTE_ZONE=europe-west1-b
-
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
 
