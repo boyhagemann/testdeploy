@@ -8,14 +8,14 @@ ENV NPM_CONFIG_LOGLEVEL warn
 # Install all dependencies of the current project.
 COPY package.json package.json
 
-# Build for production.
-#RUN npm run build --production
-RUN npm install -g -s --no-progress yarn && \
-yarn --production && \
-yarn build --production
+# Install Yarn and install dependencies.
+RUN npm install -g -s --no-progress yarn && yarn
 
 # Copy all local files into the image.
 COPY . .
+
+# Build
+RUN yarn run build
 
 # Install `serve` to run the application.
 RUN yarn install -g serve
