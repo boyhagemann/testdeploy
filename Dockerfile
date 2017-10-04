@@ -18,7 +18,7 @@ COPY . .
 RUN yarn run build
 
 # Install `serve` to run the application.
-RUN yarn install -g serve
+RUN yarn global add serve
 
 # Set the command to start the node server.
 CMD serve -s build
