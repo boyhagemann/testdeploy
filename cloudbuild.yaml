@@ -3,6 +3,8 @@ steps:
 
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
+    env:
+      - NODE_ENV=production
 
   - name: gcr.io/cloud-builders/kubectl
     args: ['set', 'image', 'deployment/test-deploy-react', 'test-deploy-react=eu.gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']

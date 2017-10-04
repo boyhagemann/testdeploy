@@ -17,6 +17,9 @@ COPY . .
 # Build
 RUN yarn run build
 
+# Clean up
+RUN rm -rf node_modules && rm -rf src
+
 # Install `serve` to run the application.
 RUN yarn global add serve
 
